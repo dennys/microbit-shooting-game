@@ -2,7 +2,7 @@ input.onButtonPressed(Button.A, function () {
     monkey.change(LedSpriteProperty.X, -1)
 })
 input.onButtonPressed(Button.AB, function () {
-    music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), SoundExpressionPlayMode.UntilDone)
+    music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.InBackground)
     bullet = game.createSprite(monkey.get(LedSpriteProperty.X), monkey.get(LedSpriteProperty.Y))
     bullet.turn(Direction.Left, 90)
     for (let index = 0; index < 4; index++) {
@@ -13,13 +13,15 @@ input.onButtonPressed(Button.AB, function () {
         banana.delete()
         bullet.delete()
         game.addScore(1)
-        music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.InBackground)
+        music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.InBackground)
         strip.showRainbow(1, 360)
         for (let index = 0; index < 30; index++) {
+            strip.show()
             strip.rotate(1)
             basic.pause(100)
         }
         basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
         strip.clear()
         banana = game.createSprite(randint(0, 3), 0)
     } else {
