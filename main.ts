@@ -37,7 +37,7 @@ let banana: game.LedSprite = null
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P2, 24, NeoPixelMode.RGB)
 strip.setBrightness(50)
-banana = game.createSprite(randint(0, 3), 0)
+banana = game.createSprite(randint(0, 4), 0)
 monkey = game.createSprite(2, 4)
 game.setScore(0)
 game.startCountdown(50000)
